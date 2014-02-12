@@ -1,0 +1,4 @@
+memcached
+=========
+
+Memcached for docker
