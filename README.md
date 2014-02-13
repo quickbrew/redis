@@ -1,14 +1,14 @@
-memcached
+redis
 =========
 
-Memcached for docker
+Redis for docker
 
 ## Usage
 
 ```bash
-# By default 128MB of memory is allocated to memcached.
-docker run -d -name memcached -p 11211:11211 quickbrew/memcached
+# First create a DATA container
+docker run -v /data -name DATA busybox true
 
-# The memory limit can be changed by passing it as extra parameters.
-docker run -d -name memcached -p 11211:11211 quickbrew/memcached -m 256
+# Then run the redis container
+docker run -d -name redis -volumes-from DATA -p 6379:6379 quickbrew/redis
 ```

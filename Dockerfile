@@ -2,10 +2,11 @@ FROM ubuntu
 MAINTAINER Simon Menke <simon.menke@gmail.com>
 
 RUN apt-get update
-RUN apt-get -y install memcached
+RUN apt-get -yy install redis-server
 
-EXPOSE 11211
-USER   nobody
+ADD redis.conf /etc/redis/redis.conf
+ADD run.sh /run-redis.sh
 
-CMD ["-m", "128"]
-ENTRYPOINT ["memcached", "-p", "11211", "-U", "0"]
+EXPOSE 6379
+
+ENTRYPOINT ["bash", "/run-redis.sh"]
