@@ -3,4 +3,4 @@
 set -e
 
 mkdir -p /data/redis
-exec redis-server
+exec redis-server /etc/redis/redis.conf
