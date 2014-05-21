@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 MAINTAINER Simon Menke <simon.menke@gmail.com>
 
 RUN apt-get update
